@@ -10,7 +10,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Hospital</th><th>Blood Group</th><th>Units</th><th>Request Date</th><th>Status</th>
+        <th>Hospital</th><th>Blood Group</th><th>Units</th><th>Request Date</th><th>Status</th><th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +21,11 @@
         <td>{{ req[3] }}</td>
         <td>{{ req[4] }}</td>
         <td>{{ req[5] }}</td>
+        <td>
+        <form action="/delete-request/{{ req[0] }}" method="POST" onsubmit="return confirm('Delete this request?');">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
       </tr>
       {% endfor %}
     </tbody>

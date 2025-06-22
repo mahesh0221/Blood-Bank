@@ -10,7 +10,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Name</th><th>Age</th><th>Gender</th><th>Blood Group</th><th>Phone</th><th>Last Donation</th>
+        <th>Name</th><th>Age</th><th>Gender</th><th>Blood Group</th><th>Phone</th><th>Last Donation</th><th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +22,11 @@
         <td>{{ donor[4] }}</td>
         <td>{{ donor[5] }}</td>
         <td>{{ donor[6] }}</td>
+         <td>
+        <form action="/delete-donor/{{ donor[0] }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this donor?');">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
       </tr>
       {% endfor %}
     </tbody>
